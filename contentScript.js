@@ -19,10 +19,19 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
 });
 
-function isIntroPlaying() {
-    const skipButton = document.querySelector('[data-testid="player-ux-skip-button"]');
-    return skipButton !== null;
+function isIntroVisible() {
+    const skipLabel = document.querySelector('.StyledSkipLabel-Beam-Web-Ent__sc-1k7xaf1-3');
+    return skipLabel && skipLabel.textContent === 'Skip Intro';
 }
+
+function isIntroPlaying() {
+    return isIntroVisible();
+}
+
+// function isIntroPlaying() {
+//     const skipButton = document.querySelector('[data-testid="player-ux-skip-button"]');
+//     return skipButton !== null;
+// }
 
 function skipIntro() {
     const skipButton = document.querySelector('[data-testid="player-ux-skip-button"]'); 
