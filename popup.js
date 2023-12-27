@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Load the stored state from chrome.storage.local when the popup is opened
-    chrome.storage.local.get(['isSkipIntroEnabled', 'isNextEpisodeEnabled'], (result) => {
-        document.getElementById('skipIntroSwitch').checked = result.isSkipIntroEnabled || false;
-        document.getElementById('nextEpisodeSwitch').checked = result.isNextEpisodeEnabled || false;
+    chrome.storage.local.get({isSkipIntroEnabled: true, isNextEpisodeEnabled: true}, (result) => {
+        document.getElementById('skipIntroSwitch').checked = result.isSkipIntroEnabled;
+        document.getElementById('nextEpisodeSwitch').checked = result.isNextEpisodeEnabled;
     });
 
     document.getElementById('skipIntroSwitch').addEventListener('change', (event) => {

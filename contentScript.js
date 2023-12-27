@@ -1,7 +1,7 @@
 console.log('Content script is running.');
 
-let isSkipIntroEnabled = false;
-let isNextEpisodeEnabled = false;
+let isSkipIntroEnabled = true;
+let isNextEpisodeEnabled = true;
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'toggleSkipIntro') {
